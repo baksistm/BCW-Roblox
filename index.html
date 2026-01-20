@@ -5,11 +5,14 @@
   <title>Beto Carrero Roblox</title>
   <style>
     :root {
-      --vermelho: #d62828;
-      --amarelo: #fcbf49;
-      --azul: #003049;
+      --azul-escuro: #0b2a4a;
+      --azul-claro: #1e90d6;
+      --ciano: #4fc3f7;
+      --amarelo: #f9c74f;
+      --rosa: #ef476f;
+      --roxo: #7b2cbf;
       --branco: #ffffff;
-      --cinza: #f4f4f4;
+      --preto: #000000;
     }* {
   margin: 0;
   padding: 0;
@@ -23,7 +26,7 @@ body {
 }
 
 header {
-  background: linear-gradient(90deg, var(--vermelho), var(--amarelo));
+  background-color: var(--preto);
   padding: 20px;
 }
 
@@ -54,9 +57,9 @@ header {
 }
 
 .hero {
-  background-color: var(--azul);
+  background: radial-gradient(circle at top, var(--azul-claro), var(--azul-escuro));
   color: var(--branco);
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
@@ -99,7 +102,9 @@ header {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 40px;
-  color: var(--vermelho);
+  background: linear-gradient(90deg, var(--amarelo), var(--rosa), var(--ciano));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .cards {
@@ -131,7 +136,7 @@ header {
 }
 
 footer {
-  background-color: var(--azul);
+  background-color: var(--preto);
   color: var(--branco);
   text-align: center;
   padding: 25px 15px;
@@ -153,7 +158,9 @@ footer span {
 </head>
 <body>  <header>
     <div class="navbar">
-      <div class="logo">Beto Carrero Roblox</div>
+      <div class="logo">
+        <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox" />
+      </div>
       <nav class="menu">
         <a href="#">Início</a>
         <a href="#">O Jogo</a>
