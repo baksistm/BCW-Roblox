@@ -52,6 +52,7 @@
     .grid {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px; /* evita encostar nas laterais no mobile */
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
@@ -224,6 +225,20 @@
       .navbar nav a {
         margin: 0 10px;
       }
+
+      .grid {
+        padding: 0 16px; /* mais respiro em telas pequenas */
+        gap: 22px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+
+      .navbar nav a {
+        margin: 0 10px;
+      }
     }
   </style>
 </head>
@@ -251,6 +266,8 @@
   </header>
 
   <section class="grid">
+
+    <!-- TOTAL: 17 RESTAURANTES -->
 
     <!-- 1 -->
     <div class="card">
@@ -405,50 +422,8 @@
       </div>
     </div>
 
-    <!-- 18 -->
-    <div class="card">
-      <img src="img/restaurantes/pizza-pizza.jpg" alt="Pizza Pizza">
-      <div class="card-content">
-        <h3>Pizza Pizza</h3>
-        <span class="area">Vila Germânica</span><br><span class="status criacao">Em criação</span>
-      </div>
-    </div>
-
-    <!-- 19 -->
-    <div class="card">
-      <img src="img/restaurantes/cafe-do-cowboy.jpg" alt="Café do Cowboy">
-      <div class="card-content">
-        <h3>Café do Cowboy</h3>
-        <span class="area">Cowboyland</span><br><span class="status criacao">Em criação</span>
-      </div>
-    </div>
-
-    <!-- 20 -->
-    <div class="card">
-      <img src="img/restaurantes/acai.jpg" alt="Açaí">
-      <div class="card-content">
-        <h3>Açaí</h3>
-        <span class="area">Diversas áreas</span><br><span class="status criacao">Em criação</span>
-      </div>
-    </div>
-
-    <!-- 21 -->
-    <div class="card">
-      <img src="img/restaurantes/churros-do-beto.jpg" alt="Churros do Beto">
-      <div class="card-content">
-        <h3>Churros do Beto</h3>
-        <span class="area">Centro do Parque</span><br><span class="status criacao">Em criação</span>
-      </div>
-    </div>
-
-    <!-- 22 -->
-    <div class="card">
-      <img src="img/restaurantes/crepes.jpg" alt="Crepes">
-      <div class="card-content">
-        <h3>Crepes</h3>
-        <span class="area">Avenida das Nações</span><br><span class="status criacao">Em criação</span>
-      </div>
-    </div></div>
+    <!-- REMOVIDOS ITENS EXTRAS PARA TOTALIZAR 17 RESTAURANTES -->
+</div></div>
 
   </section>
 
