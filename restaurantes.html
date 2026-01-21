@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurantes • Beto Carrero Roblox</title>
+
+  <style>
+    :root {
+      --azul-escuro: #0b2a4a;
+      --azul-claro: #1e90d6;
+      --amarelo: #f9c74f;
+      --rosa: #ef476f;
+      --verde: #2ecc71;
+      --branco: #ffffff;
+      --cinza: #f4f4f4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, var(--azul-escuro), var(--azul-claro));
+      color: var(--branco);
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    header img {
+      max-width: 180px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--cinza);
+    }
+
+    .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: var(--branco);
+      color: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .area {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background-color: var(--amarelo);
+      color: var(--azul-escuro);
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--branco);
+    }
+
+    .status.pronto {
+      background-color: var(--verde);
+    }
+
+    .status.criacao {
+      background-color: var(--rosa);
+    }
+
+    footer {
+      background-color: var(--azul-escuro);
+      margin-top: 80px;
+      padding: 40px 20px 20px;
+      color: var(--cinza);
+      font-size: 0.9rem;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left img {
+      height: 55px;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .socials a img {
+      height: 28px;
+      margin-left: 12px;
+      transition: transform 0.2s;
+    }
+
+    .socials a img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-divider {
+      margin: 25px 0 15px;
+      border: none;
+      height: 1px;
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: var(--cinza);
+      font-weight: bold;
+    }
+
+    .footer-fans {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+  
+    /* NAVBAR */
+    .navbar {
+      background-color: var(--azul-claro);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar .logo img {
+      height: 45px;
+    }
+
+    .navbar nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: var(--branco);
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .navbar nav a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .navbar nav a {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Atrações</a>
+      <a href="#">Eventos</a>
+      <a href="restaurantes.html">Restaurantes</a>
+      <a href="#">Contato</a>
+      <a href="#">Parceiros</a>
+    </nav>
+  </div>
+
+
+  <header style="padding: 40px 20px;">
+    <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero Roblox">
+    <h1>Restaurantes do Park</h1>
+    <p>Conheça todos os pontos de alimentação espalhados pelo parque</p>
+  </header>
+
+  <section class="grid">
+
+    <!-- 1 -->
+    <div class="card">
+      <img src="img/restaurantes/burguer-mania.jpg" alt="Burger Mania">
+      <div class="card-content">
+        <h3>Burger Mania</h3>
+        <span class="area">Área NERF Mania</span><br><span class="status pronto">Já no jogo</span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <img src="img/restaurantes/hot-wheels.jpg" alt="Hot Wheels Restaurant">
+      <div class="card-content">
+        <h3>Restaurante Hot Wheels</h3>
+        <span class="area">Hot Wheels Epic Show</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <img src="img/restaurantes/fritz-fritas.jpg" alt="Fritz & Fritas">
+      <div class="card-content">
+        <h3>Fritz & Fritas</h3>
+        <span class="area">Vila Germânica</span><br><span class="status pronto">Já no jogo</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <img src="img/restaurantes/excalibur.jpg" alt="Excalibur">
+      <div class="card-content">
+        <h3>Restaurante Excalibur</h3>
+        <span class="area">Vila Germânica</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <img src="img/restaurantes/billy-the-beef.jpg" alt="Billy The Beef">
+      <div class="card-content">
+        <h3>Billy The Beef</h3>
+        <span class="area">Cowboyland</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <img src="img/restaurantes/casa-de-massas.jpg" alt="Casa de Massas">
+      <div class="card-content">
+        <h3>Casa de Massas</h3>
+        <span class="area">Avenida das Nações</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <img src="img/restaurantes/natural-mix.jpg" alt="Natural Mix">
+      <div class="card-content">
+        <h3>Natural Mix</h3>
+        <span class="area">Aventura Radical / Star Mountain</span><br><span class="status pronto">Já no jogo</span>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <img src="img/restaurantes/acores.jpg" alt="Restaurante Açores">
+      <div class="card-content">
+        <h3>Restaurante Açores</h3>
+        <span class="area">Avenida das Nações</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <img src="img/restaurantes/shangai.jpg" alt="Restaurante Shangai">
+      <div class="card-content">
+        <h3>Restaurante Shangai</h3>
+        <span class="area">Avenida das Nações</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <img src="img/restaurantes/camarao-express.jpg" alt="Camarão Express">
+      <div class="card-content">
+        <h3>Camarão Express</h3>
+        <span class="area">Avenida das Nações</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <img src="img/restaurantes/damay-cafe.jpg" alt="Damay Café">
+      <div class="card-content">
+        <h3>Damay Café</h3>
+        <span class="area">Castelo das Nações</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <img src="img/restaurantes/elixir.jpg" alt="Elixir Milagroso">
+      <div class="card-content">
+        <h3>Elixir Milagroso</h3>
+        <span class="area">Área Rebuliço</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="card">
+      <img src="img/restaurantes/fini.jpg" alt="Fini">
+      <div class="card-content">
+        <h3>Fini</h3>
+        <span class="area">Centro do Parque</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="card">
+      <img src="img/restaurantes/trem-zaragoza.jpg" alt="Trem Zaragoza">
+      <div class="card-content">
+        <h3>Trem Zaragoza</h3>
+        <span class="area">Dinomagic</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card">
+      <img src="img/restaurantes/sobremesas.jpg" alt="Sobremesas">
+      <div class="card-content">
+        <h3>Sobremesas</h3>
+        <span class="area">Diversas áreas</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="card">
+      <img src="img/restaurantes/pipoca.jpg" alt="Pipoca & Churros">
+      <div class="card-content">
+        <h3>Pipoca & Churros</h3>
+        <span class="area">Diversas áreas</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="card">
+      <img src="img/restaurantes/snacks.jpg" alt="Snacks & Bebidas">
+      <div class="card-content">
+        <h3>Snacks & Bebidas</h3>
+        <span class="area">Diversas áreas</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="card">
+      <img src="img/restaurantes/pizza-pizza.jpg" alt="Pizza Pizza">
+      <div class="card-content">
+        <h3>Pizza Pizza</h3>
+        <span class="area">Vila Germânica</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="card">
+      <img src="img/restaurantes/cafe-do-cowboy.jpg" alt="Café do Cowboy">
+      <div class="card-content">
+        <h3>Café do Cowboy</h3>
+        <span class="area">Cowboyland</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="card">
+      <img src="img/restaurantes/acai.jpg" alt="Açaí">
+      <div class="card-content">
+        <h3>Açaí</h3>
+        <span class="area">Diversas áreas</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 21 -->
+    <div class="card">
+      <img src="img/restaurantes/churros-do-beto.jpg" alt="Churros do Beto">
+      <div class="card-content">
+        <h3>Churros do Beto</h3>
+        <span class="area">Centro do Parque</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div>
+
+    <!-- 22 -->
+    <div class="card">
+      <img src="img/restaurantes/crepes.jpg" alt="Crepes">
+      <div class="card-content">
+        <h3>Crepes</h3>
+        <span class="area">Avenida das Nações</span><br><span class="status criacao">Em criação</span>
+      </div>
+    </div></div>
+
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
+        <div>
+          <div>DreamWorks Trolls, Shrek, Madagascar and Kung Fu Panda © DreamWorks Animation L.L.C.</div>
+          <div class="footer-links">
+            <a href="ocultos/formulario.html">Colabore no projeto</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="#" title="Instagram"><img src="img/social/instagram.png" alt="Instagram"></a>
+        <a href="#" title="TikTok"><img src="img/social/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920" title="Roblox"><img src="img/social/roblox.png" alt="Roblox"></a>
+      </div>
+    </div>
+
+    <div class="footer-fans">Feito por fãs • Projeto não oficial</div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      Beto Carrero World Roblox | 2026<br>
+      Todos os direitos reservados à marca
+    </div>
+  </footer>
+
+</body>
+</html>
