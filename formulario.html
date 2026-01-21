@@ -58,14 +58,14 @@
 
     .t1 {
       border-width: 0 200px 200px 0;
-      border-color: transparent var(--azul-claro) transparent transparent;
+      border-color: transparent var(--vermelho) transparent transparent;
       top: 0;
       right: 0;
     }
 
     .t2 {
       border-width: 200px 0 0 200px;
-      border-color: transparent transparent transparent var(--verde-claro);
+      border-color: transparent transparent transparent var(vermelho);
       bottom: 0;
       left: 0;
     }
@@ -75,7 +75,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      background: linear-gradient(90deg, var(--verde-escuro), var(--azul));
+      background: linear-gradient(90deg, var(--laranja), var(--amarelo));
       color: var(--branco);
     }
 
@@ -241,18 +241,18 @@
 
       <button type="submit">Enviar colaboração</button>
     </form>
-
-    <footer>
-      <span>Os dados enviados serão utilizados apenas para contato e organização da equipe do jogo.</span>
       
     </footer>
       Os dados enviados serão utilizados apenas para contato e organização da equipe do jogo.
     </footer>
+
+    <a class="btn-voltar" href="index.html">Sair</a>
+    
   </div>
 
   <script>
     // URL do Google Apps Script que salva no Google Sheets
-    const SCRIPT_URL = "COLE_AQUI_A_URL_DO_APPS_SCRIPT";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfnsFDNnF9j6D5JIo9E2vKDBPaIlSMdat4JbDIl_Ch3Kotop0r1-M6Sw_936e7pIJS/exec";
 
     document.getElementById('colaboracaoForm').addEventListener('submit', function(e) {
       e.preventDefault();
