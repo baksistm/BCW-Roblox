@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="logo-beto-carrero-roblox.png" type="image/png">
   <title>Colabore com o Jogo | Beto Carrero World Roblox</title>
 
   <style>
@@ -59,14 +58,14 @@
 
     .t1 {
       border-width: 0 200px 200px 0;
-      border-color: transparent var(--vermelho) transparent transparent;
+      border-color: transparent var(--azul-claro) transparent transparent;
       top: 0;
       right: 0;
     }
 
     .t2 {
       border-width: 200px 0 0 200px;
-      border-color: transparent transparent transparent var(--vermelho);
+      border-color: transparent transparent transparent var(--verde-claro);
       bottom: 0;
       left: 0;
     }
@@ -76,12 +75,12 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      background: linear-gradient(90deg, var(--laranja), var(--amarelo));
+      background: linear-gradient(90deg, var(--verde-escuro), var(--azul));
       color: var(--branco);
     }
 
     header img {
-      height: 90px;
+      height: 70px;
     }
 
     header h1 {
@@ -151,10 +150,33 @@
     }
 
     footer {
-      padding: 20px 40px;
+      padding: 20px 40px 30px;
       background: var(--cinza);
       font-size: 0.9rem;
       color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .btn-voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--azul), var(--azul-escuro));
+      color: var(--branco);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-voltar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
     }
 
     @media (max-width: 768px) {
@@ -179,7 +201,7 @@
 
     <header>
       <!-- Substitua o src pelo arquivo da logo oficial do jogo -->
-      <img src="logo-beto-carrero-roblox.png" alt="Logo" />
+      <img src="logo-jogo-beto-carrero-roblox.png" alt="Logo do Jogo Beto Carrero World Roblox" />
       <div>
         <h1>Colabore com o jogo</h1>
         <p>Beto Carrero World • Roblox</p>
@@ -220,18 +242,17 @@
       <button type="submit">Enviar colaboração</button>
     </form>
 
-    <a class="btn-voltar" href="index.html">Voltar</a>
-    
     <footer>
+      <span>Os dados enviados serão utilizados apenas para contato e organização da equipe do jogo.</span>
+      
+    </footer>
       Os dados enviados serão utilizados apenas para contato e organização da equipe do jogo.
-          <a class="btn-voltar" href="index.html">Voltar</a>
     </footer>
   </div>
 
-  <a class="btn-voltar" href="index.html">Voltar</a>
-  
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfnsFDNnF9j6D5JIo9E2vKDBPaIlSMdat4JbDIl_Ch3Kotop0r1-M6Sw_936e7pIJS/exec";
+    // URL do Google Apps Script que salva no Google Sheets
+    const SCRIPT_URL = "COLE_AQUI_A_URL_DO_APPS_SCRIPT";
 
     document.getElementById('colaboracaoForm').addEventListener('submit', function(e) {
       e.preventDefault();
