@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colabore com o Jogo | Beto Carrero World Roblox</title>
+
+  <style>
+    :root {
+      /* Cores oficiais da marca (conforme arquivo enviado) */
+      --verde-escuro: #018570;
+      --verde-claro: #5CB7A6;
+      --azul-claro: #57BFEE;
+      --azul: #264597;
+      --azul-escuro: #123176;
+      --roxo: #663289;
+      --vermelho: #DC2321;
+      --laranja: #FE6100;
+      --amarelo: #F8AF1A;
+      --rosa: #E72579;
+      --branco: #ffffff;
+      --cinza: #f4f6f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .container {
+      background: var(--branco);
+      max-width: 900px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Elementos geométricos inspirados nos vitrais */
+    .triangle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      opacity: 0.15;
+    }
+
+    .t1 {
+      border-width: 0 200px 200px 0;
+      border-color: transparent var(--azul-claro) transparent transparent;
+      top: 0;
+      right: 0;
+    }
+
+    .t2 {
+      border-width: 200px 0 0 200px;
+      border-color: transparent transparent transparent var(--verde-claro);
+      bottom: 0;
+      left: 0;
+    }
+
+    header {
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: linear-gradient(90deg, var(--verde-escuro), var(--azul));
+      color: var(--branco);
+    }
+
+    header img {
+      height: 70px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      opacity: 0.9;
+    }
+
+    form {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .full {
+      grid-column: span 2;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--azul-escuro);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 2px solid var(--cinza);
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--azul-claro);
+      box-shadow: 0 0 0 3px rgba(87,191,238,0.25);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--laranja), var(--amarelo));
+      color: #000;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      padding: 20px 40px;
+      background: var(--cinza);
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      .full, button {
+        grid-column: span 1;
+      }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="triangle t1"></div>
+    <div class="triangle t2"></div>
+
+    <header>
+      <!-- Substitua o src pelo arquivo da logo oficial do jogo -->
+      <img src="logo-jogo-beto-carrero-roblox.png" alt="Logo" />
+      <div>
+        <h1>Colabore com o jogo</h1>
+        <p>Beto Carrero World • Roblox</p>
+      </div>
+    </header>
+
+    <form id="colaboracaoForm">
+      <div>
+        <label>Nome completo</label>
+        <input type="text" name="nome" required />
+      </div>
+
+      <div>
+        <label>Idade</label>
+        <input type="number" name="idade" min="10" required />
+      </div>
+
+      <div class="full">
+        <label>Habilidades</label>
+        <input type="text" name="habilidades" placeholder="Ex: modelagem 3D, scripting Lua, design, ideias criativas" required />
+      </div>
+
+      <div class="full">
+        <label>Com o que você gostaria de colaborar?</label>
+        <textarea name="colaboracao" required></textarea>
+      </div>
+
+      <div>
+        <label>E-mail</label>
+        <input type="email" name="email" required />
+      </div>
+
+      <div>
+        <label>Telefone / WhatsApp</label>
+        <input type="tel" name="whatsapp" required />
+      </div>
+
+      <button type="submit">Enviar colaboração</button>
+    </form>
+
+    <footer>
+      Os dados enviados serão utilizados apenas para contato e organização da equipe do jogo.
+    </footer>
+  </div>
+
+  <script>
+    // URL do Google Apps Script que salva no Google Sheets
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfnsFDNnF9j6D5JIo9E2vKDBPaIlSMdat4JbDIl_Ch3Kotop0r1-M6Sw_936e7pIJS/exec";
+
+    document.getElementById('colaboracaoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => {
+        alert('Colaboração enviada com sucesso!');
+        this.reset();
+      })
+      .catch(() => {
+        alert('Erro ao enviar. Tente novamente.');
+      });
+    });
+  </script>
+
+</body>
+</html>
