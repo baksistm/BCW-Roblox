@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parcerias • Beto Carrero Roblox</title>
+  <title>Parcerias</title>
 
   <style>
     :root {
@@ -113,9 +113,9 @@
       color: var(--azul-claro);
     }
 
-    /* FOOTER (IGUAL AO RESTAURANTES) */
     footer {
       background-color: var(--azul-escuro);
+      margin-top: 80px;
       padding: 40px 20px 20px;
       color: var(--cinza);
       font-size: 0.9rem;
@@ -142,6 +142,10 @@
       height: 55px;
     }
 
+    .footer-links {
+      margin-top: 12px;
+    }
+
     .footer-links a {
       color: var(--branco);
       text-decoration: none;
@@ -151,22 +155,31 @@
     .socials a img {
       height: 28px;
       margin-left: 12px;
+      transition: transform 0.2s;
+    }
+
+    .socials a img:hover {
+      transform: scale(1.1);
     }
 
     .footer-divider {
       margin: 25px 0 15px;
+      border: none;
       height: 1px;
       background-color: rgba(255,255,255,0.2);
-      border: none;
     }
 
-    .footer-fans,
     .footer-bottom {
       text-align: center;
+      color: var(--cinza);
       font-weight: bold;
-      margin-top: 15px;
     }
 
+    .footer-fans {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 25px;
+    }
     @media (max-width: 600px) {
       .navbar nav a {
         margin: 8px;
