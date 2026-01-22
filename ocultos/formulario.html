@@ -188,8 +188,12 @@
 
       <!-- NOVA PERGUNTA -->
       <div class="full">
-        <label>Tem disponibilidade de usar um computador/notebook?</label>
-        <textarea name="computador" required></textarea>
+        <label>Você tem disponibilidade de usar um computador?</label>
+        <select name="computador" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
       </div>
 
       <button type="submit">Enviar colaboração</button>
@@ -218,7 +222,7 @@
         this.reset();
       })
       .catch(() => {
-        alert('Erro ao enviar. Tente novamente (caso tenha tentado já muitas vezes entre em contato com (47) 9 91398-1136)');
+        alert('Erro ao enviar. Tente novamente.');
       });
     });
   </script>
