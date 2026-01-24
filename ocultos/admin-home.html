@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Imagens</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+if (sessionStorage.getItem("logado") !== "true") {
+  window.location.href = "admin.html";
+}
+</script>
+
+<div class="container" style="max-width:900px;">
+  <h1>Imagens Recebidas</h1>
+  <div id="galeria" class="grid"></div>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnPQTPs_5TgdmrsFObXjz9XI0O2voJvKbhJZgyxics5bSJMpnir6eOu1CP6u9UcqbP/exec";
+
+fetch(SCRIPT_URL + "?listar=1")
+  .then(res => res.json())
+  .then(imagens => {
+    const galeria = document.getElementById("galeria");
+
+    imagens.forEach(img => {
+      const div = document.createElement("div");
+      div.className = "card";
+
+      div.innerHTML = `
+        <img src="${img.url}">
+        <a href="${img.url}" download>
+          <button>Baixar</button>
+        </a>
+        <button onclick="excluir('${img.id}')">Excluir</button>
+      `;
+
+      galeria.appendChild(div);
+    });
+  });
+
+function excluir(id) {
+  if (!confirm("Deseja excluir esta imagem?")) return;
+
+  fetch(SCRIPT_URL + "?excluir=" + id)
+    .then(() => location.reload());
+}
+</script>
+
+</body>
+</html>
