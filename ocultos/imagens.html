@@ -2,18 +2,130 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Envio de Imagens</title>
+  <title>Enviar Imagens • Beto Carrero Roblox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --azul: #264597;
+      --azul-escuro: #123176;
+      --amarelo: #F8AF1A;
+      --laranja: #FE6100;
+      --branco: #ffffff;
+      --cinza: #f4f6f8;
+      --vermelho: #DC2321;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .box {
+      background: var(--branco);
+      max-width: 520px;
+      width: 100%;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: var(--azul-escuro);
+    }
+
+    p {
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: none;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--laranja), var(--amarelo));
+    }
+
+    .msg {
+      margin-top: 15px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .erro { color: var(--vermelho); }
+    .ok { color: green; }
+  </style>
 </head>
 <body>
 
-  <h2>Enviar imagem (teste)</h2>
+<div class="box">
+  <h1>Envio de imagens</h1>
+  <p>Envie até <strong>5 imagens por vez</strong> para ajudar no desenvolvimento do jogo.</p>
 
-  <input type="file" id="file" accept="image/*">
-  <br><br>
-  <button onclick="enviar()">Enviar</button>
+  <input type="file" id="files" multiple accept="image/*">
+  <button onclick="enviar()">Enviar imagens</button>
 
-  <p id="status"></p>
+  <div class="msg erro" id="erro"></div>
+  <div class="msg ok" id="ok"></div>
+</div>
 
-  <script src="script.js"></script>
+<script>
+const SCRIPT_URL = "COLE_AQUI_URL_DO_WEBAPP";
+
+function enviar() {
+  const files = document.getElementById("files").files;
+
+  if (files.length === 0) return;
+  if (files.length > 5) {
+    mostrarErro("Você pode enviar no máximo 5 imagens por vez.");
+    return;
+  }
+
+  [...files].forEach(file => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          action: "upload",
+          file: reader.result,
+          name: file.name
+        })
+      });
+    };
+    reader.readAsDataURL(file);
+  });
+
+  mostrarOk("Imagens enviadas com sucesso!");
+  document.getElementById("files").value = "";
+}
+
+function mostrarErro(txt) {
+  document.getElementById("erro").innerText = txt;
+  document.getElementById("erro").style.display = "block";
+}
+
+function mostrarOk(txt) {
+  document.getElementById("ok").innerText = txt;
+  document.getElementById("ok").style.display = "block";
+}
+</script>
+
 </body>
 </html>
