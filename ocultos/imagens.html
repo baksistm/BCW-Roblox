@@ -3,128 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <title>Enviar Imagens</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    :root {
-      --azul: #264597;
-      --azul-escuro: #123176;
-      --amarelo: #F8AF1A;
-      --laranja: #FE6100;
-      --branco: #ffffff;
-      --cinza: #f4f6f8;
-      --vermelho: #DC2321;
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    
     .box {
-      background: var(--branco);
-      max-width: 520px;
+      background: #020617;
+      padding: 30px;
+      border-radius: 12px;
       width: 100%;
-      padding: 35px;
-      border-radius: 22px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      max-width: 400px;
       text-align: center;
     }
 
-    h1 {
-      margin-bottom: 10px;
-      color: var(--azul-escuro);
-    }
-
-    p {
-      margin-bottom: 25px;
-      color: #555;
-    }
-
-    input[type="file"] {
+    input, button {
       width: 100%;
-      margin-bottom: 20px;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    input {
+      background: #020617;
+      border: 1px solid #334155;
+      color: #fff;
     }
 
     button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 14px;
-      border: none;
+      background: #22c55e;
       font-weight: bold;
-      font-size: 1.05rem;
       cursor: pointer;
-      background: linear-gradient(90deg, var(--laranja), var(--amarelo));
     }
 
-    .msg {
-      margin-top: 15px;
-      font-weight: bold;
-      display: none;
+    button:hover {
+      opacity: 0.9;
     }
 
-    .erro { color: var(--vermelho); }
-    .ok { color: green; }
+    p {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
 
 <div class="box">
-  <h1>Envio de imagens</h1>
-  <p>Envie até <strong>5 imagens por vez</strong> para ajudar no desenvolvimento do jogo.</p>
+  <h2>Enviar imagens</h2>
+  <p>(máximo 5 por envio)</p>
 
-  <input type="file" id="files" multiple accept="image/*">
-  <button onclick="enviar()">Enviar imagens</button>
+  <form id="form">
+    <input type="file" name="files" multiple accept="image/*" required>
+    <button type="submit">Enviar</button>
+  </form>
 
-  <div class="msg erro" id="erro"></div>
-  <div class="msg ok" id="ok"></div>
+  <p id="msg"></p>
 </div>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmX5qmLrrFdMEuy91Pt-SMkaX9HPB6sLA7Q93pFphELUCSXw4hGkWDzwOXoUU-rw9FOw/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0clV92HiVT01iMhedGhj4aAE6taMSsmkM-cozeBRKak3BKTKsJCb_-dFBEZB-dklqbA/exec";
 
-function enviar() {
-  const files = document.getElementById("files").files;
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  if (files.length === 0) return;
-  if (files.length > 5) {
-    mostrarErro("Você pode enviar no máximo 5 imagens por vez.");
+  const arquivos = this.files.files;
+
+  if (arquivos.length > 5) {
+    alert("Você pode enviar no máximo 5 imagens.");
     return;
   }
 
-  [...files].forEach(file => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      fetch(SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify({
-          action: "upload",
-          file: reader.result,
-          name: file.name
-        })
-      });
-    };
-    reader.readAsDataURL(file);
+  const formData = new FormData();
+  for (let i = 0; i < arquivos.length; i++) {
+    formData.append("file" + i, arquivos[i]);
+  }
+
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: formData
+  })
+  .then(() => {
+    document.getElementById("msg").innerText = "Imagens enviadas com sucesso!";
+    this.reset();
+  })
+  .catch(() => {
+    document.getElementById("msg").innerText = "Erro ao enviar imagens.";
   });
-
-  mostrarOk("Imagens enviadas com sucesso!");
-  document.getElementById("files").value = "";
-}
-
-function mostrarErro(txt) {
-  document.getElementById("erro").innerText = txt;
-  document.getElementById("erro").style.display = "block";
-}
-
-function mostrarOk(txt) {
-  document.getElementById("ok").innerText = txt;
-  document.getElementById("ok").style.display = "block";
-}
+});
 </script>
 
 </body>
