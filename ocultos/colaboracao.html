@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colabore ao Projeto</title>
+  <meta name="description" content="Selecione o que deseja colaborar no projeto">
+
+  <link rel="icon" href="logo-beto-carrero-roblox.png" type="image/png">
+
+  <style>
+    :root {
+      --verde-escuro: #018570;
+      --verde-claro: #5CB7A6;
+      --azul-claro: #57BFEE;
+      --azul: #264597;
+      --azul-escuro: #123176;
+      --vermelho: #DC2321;
+      --laranja: #FE6100;
+      --amarelo: #F8AF1A;
+      --branco: #ffffff;
+      --cinza: #f4f6f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+      color: var(--branco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: var(--branco);
+      border-radius: 22px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    header img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: var(--azul-escuro);
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    header h3 {
+      color: #555;
+      font-weight: 500;
+      margin-bottom: 45px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--laranja), var(--amarelo));
+      border-radius: 20px;
+      padding: 35px 25px;
+      color: #000;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 14px 30px;
+      background: var(--azul-escuro);
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 14px;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: var(--azul);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 25px;
+      }
+
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <img src="img/logo-beto-carrero-roblox.png" alt="Logo do Beto Carrero World Roblox">
+      <h1>Selecione o que deseja realizar</h1>
+      <h3>Escolha abaixo como você deseja colaborar com o projeto</h3>
+    </header>
+
+    <section class="options">
+
+      <div class="card">
+        <h2>Envie imagens</h2>
+        <p>Envie imagens para auxiliar no processo de criação e fidelidade do mapa.</p>
+        <a href="imagens.html">Acessar</a>
+      </div>
+
+      <div class="card">
+        <h2>Ajude na criação</h2>
+        <p>Colabore com suas habilidades na produção do mapa e do jogo.</p>
+        <a href="formulario.html">Acessar</a>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>
