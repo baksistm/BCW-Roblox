@@ -1,4 +1,4 @@
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6GcpbCIIjB7FkfJmWBvjQN0VOq44Dw0lhkKlXxlGY-nei16jOuz1uNlCth00t-98B/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0Km6EDl9SPt4M3w6HBtydJbRirdyVUsuNS2WixpVYuvNaZ8zQR1nNdIY9ro0X_ZWq/exec';
 
 function enviar() {
   const input = document.getElementById('file');
