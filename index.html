@@ -1,246 +1,276 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" sizes="80x80" href="img/logo-beto-carrero-roblox.png">
-  <title>Beto Carrero Roblox</title>
+  <meta charset="UTF-8">
+  <title>Beto Carrero World Roblox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .menu a {
-        margin: 8px 12px;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-
     :root {
-      --azul-escuro: #0b2a4a;
-      --azul-claro: #1e90d6;
-      --ciano: #4fc3f7;
-      --amarelo: #f9c74f;
-      --rosa: #ef476f;
-      --roxo: #7b2cbf;
+      --verde-escuro: #018570;
+      --verde-claro: #5CB7A6;
+      --azul-claro: #57BFEE;
+      --azul: #264597;
+      --azul-escuro: #123176;
+      --vermelho: #DC2321;
+      --laranja: #FE6100;
+      --amarelo: #F8AF1A;
       --branco: #ffffff;
       --preto: #000000;
-      --cinza: #f4f4f4; /* fundo padrão */
-      --azul: #0b2a4a;  /* cor base de texto */
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", sans-serif;
     }
 
     body {
-      background-color: var(--cinza);
-      color: var(--azul);
+      margin: 0;
+      background: var(--azul-escuro);
+      color: var(--branco);
     }
 
+    /* ===== NAVBAR ===== */
     header {
-      background-color: var(--preto);
-      padding: 20px;
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
+      background: var(--azul);
+      padding: 15px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .logo img {
-      height: 85px;
-      width: auto;
+    header img {
+      height: 50px;
     }
 
-    .menu a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--branco);
-      font-weight: bold;
-      transition: opacity 0.3s;
+    /* ===== CARROSSEL ===== */
+    .carousel {
+      width: 100%;
+      aspect-ratio: 1512 / 720;
+      overflow: hidden;
+      position: relative;
     }
 
-    .menu a:hover {
-      opacity: 0.8;
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
 
-    .hero {
-      background: radial-gradient(circle at top, var(--azul-claro), var(--azul-escuro));
-      color: var(--branco);
-      padding: 90px 20px;
-      text-align: center;
+    .carousel img.active {
+      opacity: 1;
     }
 
-    .hero h1 {
-      font-size: 2.8rem;
+    /* ===== GAME PASSES ===== */
+    .gamepass {
+      background: var(--azul);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    .gamepass div {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--branco);
+    }
+
+    /* ===== SEÇÕES ===== */
+    .section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 80px 40px;
+      flex-wrap: wrap;
+    }
+
+    .section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .folders {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .folder {
+      background: var(--azul);
       margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .btn-jogo {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      border-radius: 30px;
-      background-color: var(--amarelo);
-      color: var(--azul-escuro);
+    .folder button {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--branco);
+      padding: 15px;
       font-size: 1rem;
       font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-align: left;
     }
 
-    .btn-jogo:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    .folder-content {
+      display: none;
+      background: var(--azul-escuro);
+      padding: 15px;
     }
 
-    .section {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 20px;
+    .folder-content img {
+      width: 100%;
+      border-radius: 8px;
     }
 
-    .section h2 {
-      text-align: center;
+    .info {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .info h2 {
+      margin: 0;
       font-size: 2rem;
-      margin-bottom: 40px;
-      background: linear-gradient(90deg, var(--amarelo), var(--rosa), var(--ciano));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
-    .em-breve {
-      color: var(--rosa);
+    .info p {
+      margin: 15px 0;
+      opacity: 0.9;
+    }
+
+    .info a {
+      display: inline-block;
+      padding: 12px 25px;
+      background: var(--laranja);
+      color: var(--preto);
+      text-decoration: none;
       font-weight: bold;
-      font-size: 0.9rem;
+      border-radius: 8px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background-color: var(--branco);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: var(--azul);
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
+    /* ===== FOOTER ===== */
     footer {
-      background-color: var(--preto);
-      color: var(--branco);
+      background: var(--azul);
       text-align: center;
-      padding: 25px 15px;
+      padding: 30px;
       margin-top: 60px;
     }
 
-    footer span {
-      color: var(--amarelo);
-      font-weight: bold;
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .info {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="navbar">
-      <div class="logo">
-        <img src="img/logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox" />
-      </div>
-      <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920">O Jogo</a>
-        <a href="restaurantes.html">Restaurantes</a>
-        <a href="ocultos/manutenção.html">Imagens</a>
-        <a href="ocultos/manutenção.html">Agenda</a>
-        <a href="ocultos/manutenção.html">Parcerias</a>
-        <a href="ocultos/formulario.html">Contato</a>
-      </nav>
-    </div>
-  </header>
+<!-- NAVBAR -->
+<header>
+  <img src="img/logo-beto-carrero-roblox.png" alt="Logo">
+</header>
 
-  <section class="hero">
-    <h1>O Parque Mais Radical Agora no Roblox</h1>
-    <p>
-      Explore atrações inspiradas no Beto Carrero World dentro do Roblox.
-      Diversão, aventura e emoção em um só lugar!
-    </p>
-    <a class="btn-jogo" href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920" target="_blank">Entrar no jogo</a>
-  </section>
+<!-- CARROSSEL -->
+<div class="carousel">
+  <img class="active" src="https://drive.google.com/uc?export=view&id=IMAGEM_ID_1">
+  <img src="https://drive.google.com/uc?export=view&id=IMAGEM_ID_2">
+  <img src="https://drive.google.com/uc?export=view&id=IMAGEM_ID_3">
+</div>
 
-  <section class="section">
-    <h2>O que você vai encontrar</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Atrações</h3>
-        <p>Montanhas-russas, brinquedos radicais e áreas temáticas recriadas no Roblox.</p>
-      </div>
-      <div class="card">
-        <h3>Eventos <span class="em-breve">(Em breve)</span></h3>
-        <p>Eventos especiais, novidades e atualizações frequentes para os jogadores.</p>
-      </div>
-      <div class="card">
-        <h3>Comunidade <span class="em-breve">(Em breve)</span></h3>
-        <p>Uma comunidade ativa de fãs do parque e do Roblox, tudo em um só lugar.</p>
+<!-- GAME PASSES -->
+<section class="gamepass">
+  <div></div>
+  <div></div>
+  <div></div>
+</section>
+
+<!-- ATRAÇÕES -->
+<section class="section">
+  <div class="folders">
+    <div class="folder">
+      <button onclick="toggle(this)">FireWhip</button>
+      <div class="folder-content">
+        <img src="img/firewhip.jpg">
       </div>
     </div>
-  </section>
 
-  <footer>
-    © 2026 <span>Beto Carrero Roblox</span> • Projeto de fãs • Com autorização da administração do BCW
-  </footer>
+    <div class="folder">
+      <button onclick="toggle(this)">State Mountain</button>
+      <div class="folder-content">
+        <img src="img/state.jpg">
+      </div>
+    </div>
+
+    <div class="folder">
+      <button onclick="toggle(this)">Rebuliço</button>
+      <div class="folder-content">
+        <img src="img/rebulico.jpg">
+      </div>
+    </div>
+
+    <div class="folder">
+      <button onclick="toggle(this)">Big Drop</button>
+      <div class="folder-content">
+        <img src="img/bigdrop.jpg">
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <h2>Atrações</h2>
+    <p>Conheça as atrações disponíveis e que estão em construção</p>
+    <a href="atracoes.html">Acessar</a>
+  </div>
+</section>
+
+<!-- RESTAURANTES -->
+<section class="section reverse">
+  <div class="folders">
+    <!-- mesmo sistema -->
+  </div>
+
+  <div class="info">
+    <h2>Restaurantes</h2>
+    <p>Conheça nossos restaurantes disponíveis e os que estão em construção</p>
+    <a href="restaurantes.html">Acessar</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © Beto Carrero World Roblox
+</footer>
+
+<script>
+  // CARROSSEL
+  const imgs = document.querySelectorAll(".carousel img");
+  let index = 0;
+
+  setInterval(() => {
+    imgs[index].classList.remove("active");
+    index = (index + 1) % imgs.length;
+    imgs[index].classList.add("active");
+  }, 5000);
+
+  // PASTAS
+  function toggle(btn) {
+    const content = btn.nextElementSibling;
+    content.style.display =
+      content.style.display === "block" ? "none" : "block";
+  }
+</script>
 
 </body>
 </html>
