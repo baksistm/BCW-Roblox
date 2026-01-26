@@ -11,8 +11,6 @@
       --azul-escuro: #0b2a4a;
       --azul-claro: #1e90d6;
       --amarelo: #f9c74f;
-      --rosa: #ef476f;
-      --verde: #2ecc71;
       --branco: #ffffff;
       --cinza: #f4f4f4;
       --preto: #000;
@@ -57,7 +55,6 @@
       width: 100%;
       max-height: 720px;
       overflow: hidden;
-      position: relative;
     }
 
     .carousel img {
@@ -122,7 +119,6 @@
       cursor: pointer;
     }
 
-    /* IMAGEM DAS PASTAS */
     .folder-image {
       display: none;
       margin-top: 15px;
@@ -213,84 +209,83 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
-
-      .navbar nav a {
-        margin: 8px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="logo">
-      <img src="img/logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="img/logo-beto-carrero-roblox.png">
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="atracoes.html">Atrações</a>
+    <a href="restaurantes.html">Restaurantes</a>
+    <a href="contato.html">Contato</a>
+    <a href="parceiros.html">Parceiros</a>
+  </nav>
+</div>
+
+<!-- CARROSSEL -->
+<div class="carousel">
+  <img src="img/banner/1.jpg" class="active">
+  <img src="img/banner/2.jpg">
+  <img src="img/banner/3.jpg">
+</div>
+
+<!-- GAME PASSES -->
+<div class="gamepasses">
+  <img src="img/gamepass/1.png">
+  <img src="img/gamepass/2.png">
+  <img src="img/gamepass/3.png">
+</div>
+
+<!-- ATRAÇÕES -->
+<section class="section">
+  <div class="folders">
+    <div class="folder" data-img="img/atracoes/firewhip.jpg">FireWhip</div>
+    <div class="folder" data-img="img/atracoes/star-mountain.jpg">Star Mountain</div>
+    <div class="folder" data-img="img/atracoes/rebulico.jpg">Rebuliço</div>
+    <div class="folder" data-img="img/atracoes/big-drop.jpg">Big Drop</div>
+
+    <div class="folder-image">
+      <img class="preview">
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="atracoes.html">Atrações</a>
-      <a href="restaurantes.html">Restaurantes</a>
-      <a href="contato.html">Contato</a>
-      <a href="parceiros.html">Parceiros</a>
-    </nav>
   </div>
 
-  <!-- CARROSSEL -->
-  <div class="carousel">
-    <img src="img/banner/1.jpg" href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920" class="active">
-    <img src="img/banner/2.jpg" href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920">
-    <img src="img/banner/3.jpg" href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920">
+  <div class="info">
+    <h2>Atrações</h2>
+    <p>Conheça as atrações disponíveis e em construção.</p>
+    <a href="atracoes.html">Acessar</a>
+  </div>
+</section>
+
+<!-- RESTAURANTES -->
+<section class="section reverse">
+  <div class="folders">
+    <div class="folder" data-img="img/restaurantes/burguer-mania.jpg">Burger Mania</div>
+    <div class="folder" data-img="img/restaurantes/hot-wheels.jpg">Hot Wheels</div>
+    <div class="folder" data-img="img/restaurantes/fritz-fritas.jpg">Fritz & Fritas</div>
+    <div class="folder" data-img="img/restaurantes/excalibur.jpg">Excalibur</div>
+
+    <div class="folder-image">
+      <img class="preview">
+    </div>
   </div>
 
-  <!-- GAME PASSES -->
-  <div class="gamepasses">
-    <img src="img/gamepass/1.png">
-    <img src="img/gamepass/2.png">
-    <img src="img/gamepass/3.png">
+  <div class="info">
+    <h2>Restaurantes</h2>
+    <p>Conheça nossos restaurantes disponíveis e em construção.</p>
+    <a href="restaurantes.html">Acessar</a>
   </div>
+</section>
 
-  <!-- ATRAÇÕES -->
-  <section class="section">
-    <div class="folders">
-      <div class="folder" data-img="img/atracoes/firewhip.jpg">FireWhip</div>
-      <div class="folder" data-img="img/atracoes/star-mountain.jpg">Star Mountain</div>
-      <div class="folder" data-img="img/atracoes/rebulico.jpg">Rebuliço</div>
-      <div class="folder" data-img="img/atracoes/big-drop.jpg">Big Drop</div>
-
-      <div class="folder-image">
-        <img id="folderPreview">
-      </div>
-    </div>
-
-    <div class="info">
-      <h2>Atrações</h2>
-      <p>Conheça as atrações disponíveis e que estão em construção.</p>
-      <a href="atracoes.html">Acessar</a>
-    </div>
-  </section>
-
-  <!-- RESTAURANTES -->
-  <section class="section reverse">
-    <div class="folders">
-      <div class="folder" data-img="img/restaurantes/burguer-mania.jpg">Burger Mania</div>
-      <div class="folder" data-img="img/restaurantes/hot-wheels.jpg">Hot Wheels</div>
-      <div class="folder" data-img="img/restaurantes/fritz-fritas.jpg">Fritz & Fritas</div>
-      <div class="folder" data-img="img/restaurantes/excalibur.jpg">Excalibur</div>
-    </div>
-
-    <div class="info">
-      <h2>Restaurantes</h2>
-      <p>Conheça nossos restaurantes disponíveis e os que estão em construção.</p>
-      <a href="restaurantes.html">Acessar</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-left">
-        <img src="img/logo-beto-carrero-roblox.png">
+        <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
         <div>
           <div>DreamWorks Trolls, Shrek, Madagascar and Kung Fu Panda © DreamWorks Animation L.L.C.</div>
           <div class="footer-links">
@@ -300,34 +295,38 @@
       </div>
 
       <div class="socials">
-        <a href="https://www.instagram.com/betocarreroroblox"><img src="img/social/instagram.png"></a>
-        <a href="https://www.tiktok.com/@betocarreroroblox"><img src="img/social/tiktok.png"></a>
-        <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920"><img src="img/social/roblox.png"></a>
+        <a href="https://www.instagram.com/betocarreroroblox" title="Instagram"><img src="img/social/instagram.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@betocarreroroblox" title="TikTok"><img src="img/social/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920" title="Roblox"><img src="img/social/roblox.png" alt="Roblox"></a>
       </div>
     </div>
 
     <div class="footer-fans">Feito por fãs • Projeto não oficial</div>
+
     <hr class="footer-divider">
+
     <div class="footer-bottom">
       Beto Carrero World Roblox | 2026<br>
       Todos os direitos reservados à marca
     </div>
   </footer>
 
-  <script>
-    let slides = document.querySelectorAll('.carousel img');
-    let index = 0;
+<script>
+  // CARROSSEL
+  const slides = document.querySelectorAll('.carousel img');
+  let index = 0;
 
-    setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 5000);
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 5000);
 
-    // CLIQUE NAS PASTAS (MOSTRAR IMAGEM)
-    const folders = document.querySelectorAll('.folder[data-img]');
-    const box = document.querySelector('.folder-image');
-    const img = document.getElementById('folderPreview');
+  // SISTEMA DE PASTAS (FUNCIONA PARA AMBOS)
+  document.querySelectorAll('.folders').forEach(section => {
+    const folders = section.querySelecorAll('.folder');
+    const box = section.querySelector('.folder-image');
+    const img = section.querySelector('.preview');
 
     folders.forEach(folder => {
       folder.addEventListener('click', () => {
@@ -342,7 +341,5 @@
         }
       });
     });
-  </script>
-
-</body>
-</html>
+  });
+</script>
