@@ -226,8 +226,12 @@
   </div>
 
   <!-- CARROSSEL -->
-  <div class="carousel" id="carousel"></div>
-  
+  <div class="carousel">
+    <img src="img/banner/1.jpg" class="active">
+    <img src="img/banner/2.jpg">
+    <img src="img/banner/3.jpg">
+  </div>
+
   <!-- GAME PASSES -->
   <div class="gamepasses">
     <img src="img/gamepass/1.png">
@@ -293,33 +297,15 @@
   </footer>
 
   <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwBdQS77mFQBeRCHR85xEwLc2clac0OfwuRh28nPr0Fs6wlVqfKJlowvH7SX5LdqkTgTQ/exec";
-
-let index = 0;
-let slides = [];
-
-fetch(scriptURL)
-  .then(res => res.json())
-  .then(images => {
-    const carousel = document.getElementById("carousel");
-
-    images.forEach((src, i) => {
-      const img = document.createElement("img");
-      img.src = src;
-      if (i === 0) img.classList.add("active");
-      carousel.appendChild(img);
-    });
-
-    slides = document.querySelectorAll(".carousel img");
+    let slides = document.querySelectorAll('.carousel img');
+    let index = 0;
 
     setInterval(() => {
-      slides[index].classList.remove("active");
+      slides[index].classList.remove('active');
       index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
+      slides[index].classList.add('active');
     }, 5000);
-  });
-</script>
-
+  </script>
 
 </body>
 </html>
