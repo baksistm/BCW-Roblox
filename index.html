@@ -30,7 +30,7 @@
       color: var(--branco);
     }
 
-    /* NAVBAR (IGUAL AO RESTAURANTES) */
+    /* NAVBAR */
     .navbar {
       background-color: var(--azul-claro);
       padding: 15px 30px;
@@ -122,6 +122,17 @@
       cursor: pointer;
     }
 
+    /* IMAGEM DAS PASTAS */
+    .folder-image {
+      display: none;
+      margin-top: 15px;
+    }
+
+    .folder-image img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
     .info h2 {
       font-size: 2.2rem;
       margin-bottom: 10px;
@@ -142,7 +153,7 @@
       text-decoration: none;
     }
 
-    /* FOOTER (IGUAL AO RESTAURANTES) */
+    /* FOOTER */
     footer {
       background-color: var(--azul-escuro);
       padding: 40px 20px 20px;
@@ -242,10 +253,14 @@
   <!-- ATRAÇÕES -->
   <section class="section">
     <div class="folders">
-      <div class="folder">FireWhip</div>
-      <div class="folder">Star Mountain</div>
-      <div class="folder">Rebuliço</div>
-      <div class="folder">Big Drop</div>
+      <div class="folder" data-img="img/atracoes/firewhip.jpg">FireWhip</div>
+      <div class="folder" data-img="img/atracoes/star-mountain.jpg">Star Mountain</div>
+      <div class="folder" data-img="img/atracoes/rebulico.jpg">Rebuliço</div>
+      <div class="folder" data-img="img/atracoes/big-drop.jpg">Big Drop</div>
+
+      <div class="folder-image">
+        <img id="folderPreview">
+      </div>
     </div>
 
     <div class="info">
@@ -275,7 +290,7 @@
   <footer>
     <div class="footer-top">
       <div class="footer-left">
-        <img src="logo-beto-carrero-roblox.png">
+        <img src="img/logo-beto-carrero-roblox.png">
         <div>
           <div>DreamWorks Trolls, Shrek, Madagascar and Kung Fu Panda © DreamWorks Animation L.L.C.</div>
           <div class="footer-links">
@@ -293,7 +308,10 @@
 
     <div class="footer-fans">Feito por fãs • Projeto não oficial</div>
     <hr class="footer-divider">
-    <div class="footer-bottom">Beto Carrero World Roblox | 2026<br>Todos os direitos reservados à marca</div>
+    <div class="footer-bottom">
+      Beto Carrero World Roblox | 2026<br>
+      Todos os direitos reservados à marca
+    </div>
   </footer>
 
   <script>
@@ -305,6 +323,25 @@
       index = (index + 1) % slides.length;
       slides[index].classList.add('active');
     }, 5000);
+
+    // CLIQUE NAS PASTAS (MOSTRAR IMAGEM)
+    const folders = document.querySelectorAll('.folder[data-img]');
+    const box = document.querySelector('.folder-image');
+    const img = document.getElementById('folderPreview');
+
+    folders.forEach(folder => {
+      folder.addEventListener('click', () => {
+        const src = folder.dataset.img;
+
+        if (box.style.display === 'block' && img.src.includes(src)) {
+          box.style.display = 'none';
+          img.src = '';
+        } else {
+          img.src = src;
+          box.style.display = 'block';
+        }
+      });
+    });
   </script>
 
 </body>
