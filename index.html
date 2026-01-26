@@ -11,8 +11,6 @@
       --azul-escuro: #0b2a4a;
       --azul-claro: #1e90d6;
       --amarelo: #f9c74f;
-      --rosa: #ef476f;
-      --verde: #2ecc71;
       --branco: #ffffff;
       --cinza: #f4f4f4;
       --preto: #000;
@@ -57,7 +55,6 @@
       width: 100%;
       max-height: 720px;
       overflow: hidden;
-      position: relative;
     }
 
     .carousel img {
@@ -108,6 +105,237 @@
     }
 
     .folders {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .folder {
+      background: var(--branco);
+      color: var(--preto);
+      padding: 18px 25px;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .folder-image {
+      display: none;
+      margin-top: 15px;
+    }
+
+    .folder-image img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .info h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      color: var(--cinza);
+      margin-bottom: 20px;
+    }
+
+    .info a {
+      display: inline-block;
+      padding: 12px 26px;
+      background: var(--amarelo);
+      color: var(--preto);
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--azul-escuro);
+      padding: 40px 20px 20px;
+      color: var(--cinza);
+      font-size: 0.9rem;
+      margin-top: 80px;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left img {
+      height: 55px;
+    }
+
+    .footer-links a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .socials a img {
+      height: 28px;
+      margin-left: 12px;
+    }
+
+    .footer-divider {
+      margin: 25px 0 15px;
+      height: 1px;
+      background-color: rgba(255,255,255,0.2);
+      border: none;
+    }
+
+    .footer-fans,
+    .footer-bottom {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="img/logo-beto-carrero-roblox.png">
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="atracoes.html">Atrações</a>
+    <a href="restaurantes.html">Restaurantes</a>
+    <a href="contato.html">Contato</a>
+    <a href="parceiros.html">Parceiros</a>
+  </nav>
+</div>
+
+<!-- CARROSSEL -->
+<div class="carousel">
+  <img src="img/banner/1.jpg" class="active">
+  <img src="img/banner/2.jpg">
+  <img src="img/banner/3.jpg">
+</div>
+
+<!-- GAME PASSES -->
+<div class="gamepasses">
+  <img src="img/gamepass/1.png">
+  <img src="img/gamepass/2.png">
+  <img src="img/gamepass/3.png">
+</div>
+
+<!-- ATRAÇÕES -->
+<section class="section">
+  <div class="folders">
+    <div class="folder" data-img="img/atracoes/firewhip.jpg">FireWhip</div>
+    <div class="folder" data-img="img/atracoes/star-mountain.jpg">Star Mountain</div>
+    <div class="folder" data-img="img/atracoes/rebulico.jpg">Rebuliço</div>
+    <div class="folder" data-img="img/atracoes/big-drop.jpg">Big Drop</div>
+
+    <div class="folder-image">
+      <img class="preview">
+    </div>
+  </div>
+
+  <div class="info">
+    <h2>Atrações</h2>
+    <p>Conheça as atrações disponíveis e em construção.</p>
+    <a href="atracoes.html">Acessar</a>
+  </div>
+</section>
+
+<!-- RESTAURANTES -->
+<section class="section reverse">
+  <div class="folders">
+    <div class="folder" data-img="img/restaurantes/burguer-mania.jpg">Burger Mania</div>
+    <div class="folder" data-img="img/restaurantes/hot-wheels.jpg">Hot Wheels</div>
+    <div class="folder" data-img="img/restaurantes/fritz-fritas.jpg">Fritz & Fritas</div>
+    <div class="folder" data-img="img/restaurantes/excalibur.jpg">Excalibur</div>
+
+    <div class="folder-image">
+      <img class="preview">
+    </div>
+  </div>
+
+  <div class="info">
+    <h2>Restaurantes</h2>
+    <p>Conheça nossos restaurantes disponíveis e em construção.</p>
+    <a href="restaurantes.html">Acessar</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <img src="img/logo-beto-carrero-roblox.png">
+      <div>
+        <div>Projeto feito por fãs • Não oficial</div>
+        <div class="footer-links">
+          <a href="ocultos/formulario.html">Colabore no projeto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-fans">Feito por fãs</div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">Beto Carrero World Roblox | 2026</div>
+</footer>
+
+<script>
+  // CARROSSEL
+  const slides = document.querySelectorAll('.carousel img');
+  let index = 0;
+
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 5000);
+
+  // SISTEMA DE PASTAS (FUNCIONA PARA AMBOS)
+  document.querySelectorAll('.folders').forEach(section => {
+    const folders = section.querySelectorAll('.folder');
+    const box = section.querySelector('.folder-image');
+    const img = section.querySelector('.preview');
+
+    folders.forEach(folder => {
+      folder.addEventListener('click', () => {
+        const src = folder.dataset.img;
+
+        if (box.style.display === 'block' && img.src.includes(src)) {
+          box.style.display = 'none';
+          img.src = '';
+        } else {
+          img.src = src;
+          box.style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>    .folders {
       display: flex;
       flex-direction: column;
       gap: 15px;
