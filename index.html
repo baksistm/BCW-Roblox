@@ -330,16 +330,18 @@
 
     folders.forEach(folder => {
       folder.addEventListener('click', () => {
-        const src = folder.dataset.img;
+       const src = folder.dataset.img;
 
-        if (box.style.display === 'block' && img.src.includes(src)) {
-          box.style.display = 'none';
-          img.src = '';
-        } else {
-          img.src = src;
-          box.style.display = 'block';
-        }
+          if (box.style.display === 'block' && img.src.includes(src)) {
+            box.style.display = 'none';
+            img.src = '';
+          } else {
+            img.src = src;
+            box.style.display = 'block';
+            }
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
+  </body>]
+</html>
