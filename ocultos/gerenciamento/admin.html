@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Administração BCW</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== CORES ===== */
+:root {
+  --verde-escuro: #018570;
+  --verde-claro: #5CB7A6;
+  --azul-claro: #57BFEE;
+  --azul: #264597;
+  --azul-escuro: #123176;
+  --roxo: #663289;
+  --vermelho: #DC2321;
+  --laranja: #FE6100;
+  --amarelo: #ED9A27;
+  --amarelo-claro: #F8AF1A;
+  --amarelo-mais-claro: #F8D66B;
+  --rosa: #E72579;
+  --preto: #111;
+  --branco: #fff;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--preto);
+  color: var(--branco);
+}
+
+/* ===== LOGIN ===== */
+#login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--azul-escuro), var(--verde-escuro));
+}
+
+.login-box {
+  background: #fff;
+  color: #000;
+  padding: 40px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--azul-escuro);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: var(--verde-escuro);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: var(--verde-claro);
+}
+
+/* ===== LOADING ===== */
+#loading {
+  display: none;
+  height: 100vh;
+  background: var(--preto);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #333;
+  border-top: 6px solid var(--azul-claro);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== HOME ===== */
+#home {
+  display: none;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+nav {
+  background: var(--azul-escuro);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav span {
+  font-size: 18px;
+}
+
+nav button {
+  background: var(--vermelho);
+  border: none;
+  padding: 8px 18px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* IFRAME */
+iframe {
+  width: 100%;
+  height: calc(100vh - 60px);
+  border: none;
+  background: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<section id="login">
+  <div class="login-box">
+    <h2>Área Administrativa</h2>
+    <input type="text" id="user" placeholder="Usuário">
+    <input type="password" id="pass" placeholder="Senha">
+    <button onclick="login()">Entrar</button>
+  </div>
+</section>
+
+<!-- LOADING -->
+<section id="loading">
+  <div class="loader"></div>
+  <h2 id="welcomeText"></h2>
+</section>
+
+<!-- HOME -->
+<section id="home">
+  <nav>
+    <span id="homeUser"></span>
+    <button onclick="logout()">Sair</button>
+  </nav>
+
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTlJ8XnsZL2F86H6O8d_29ADYA3yh2r8uxmYI2vGOjeQqXwgKYYfeJGTDddF6uFC0Zuvj1wi4oa7tEf/pubhtml"></iframe>
+</section>
+
+<script>
+const users = {
+  "Bruno": "33542772",
+  "DireçãoBCW": "BCW@2026!World#9"
+};
+
+function login() {
+  const user = document.getElementById("user").value;
+  const pass = document.getElementById("pass").value;
+
+  if (users[user] === pass) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("loading").style.display = "flex";
+
+    document.getElementById("welcomeText").innerText = `Bem-vindo ${user}!`;
+
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("home").style.display = "flex";
+      document.getElementById("homeUser").innerText = `Bem-vindo ${user}!`;
+    }, 4000);
+  } else {
+    alert("Usuário ou senha inválidos");
+  }
+}
+
+function logout() {
+  location.reload();
+}
+</script>
+
+</body>
+</html>
