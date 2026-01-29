@@ -78,14 +78,13 @@
       flex-wrap: wrap;
     }
 
-    
+    /* 🔧 CORREÇÃO AQUI */
     .gamepasses h1 {
-      text-allign: center;
-      color: #0000;
+      text-align: center;
+      color: #000;
       padding-top: 10px;
       padding-bottom: 10px;
     }
-
 
     .gamepasses img {
       width: 80px;
@@ -249,7 +248,9 @@
 
 <!-- GAME PASSES -->
 <div class="gamepasses">
-  <h1>Game Pass</h1>
+  <div>
+    <h1>Game Pass</h1>
+  </div>
   <img src="img/gamepass/1.png">
   <img src="img/gamepass/2.png">
   <img src="img/gamepass/3.png">
@@ -295,37 +296,34 @@
   </div>
 </section>
 
-  <footer>
-    <div class="footer-top">
-      <div class="footer-left">
-        <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
-        <div>
-          <div>DreamWorks Trolls, Shrek, Madagascar and Kung Fu Panda © DreamWorks Animation L.L.C.</div>
-          <div class="footer-links">
-            <a href="ocultos/formulario.html">Colabore no projeto</a>
-          </div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
+      <div>
+        <div>DreamWorks Trolls, Shrek, Madagascar and Kung Fu Panda © DreamWorks Animation L.L.C.</div>
+        <div class="footer-links">
+          <a href="ocultos/formulario.html">Colabore no projeto</a>
         </div>
       </div>
-
-      <div class="socials">
-        <a href="https://www.instagram.com/betocarreroroblox" title="Instagram"><img src="img/social/instagram.png" alt="Instagram"></a>
-        <a href="https://www.tiktok.com/@betocarreroroblox" title="TikTok"><img src="img/social/tiktok.png" alt="TikTok"></a>
-        <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920" title="Roblox"><img src="img/social/roblox.png" alt="Roblox"></a>
-      </div>
     </div>
 
-    <div class="footer-fans">Feito por fãs • Projeto não oficial</div>
-
-    <hr class="footer-divider">
-
-    <div class="footer-bottom">
-      Beto Carrero World Roblox | 2026<br>
-      Todos os direitos reservados à marca
+    <div class="socials">
+      <a href="https://www.instagram.com/betocarreroroblox"><img src="img/social/instagram.png"></a>
+      <a href="https://www.tiktok.com/@betocarreroroblox"><img src="img/social/tiktok.png"></a>
+      <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920"><img src="img/social/roblox.png"></a>
     </div>
-  </footer>
+  </div>
+
+  <div class="footer-fans">Feito por fãs • Projeto não oficial</div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    Beto Carrero World Roblox | 2026<br>
+    Todos os direitos reservados à marca
+  </div>
+</footer>
 
 <script>
-  // CARROSSEL
   const slides = document.querySelectorAll('.carousel img');
   let index = 0;
 
@@ -335,7 +333,6 @@
     slides[index].classList.add('active');
   }, 5000);
 
-  // SISTEMA DE PASTAS (FUNCIONA PARA AMBOS)
   document.querySelectorAll('.folders').forEach(section => {
     const folders = section.querySelectorAll('.folder');
     const box = section.querySelector('.folder-image');
@@ -343,18 +340,19 @@
 
     folders.forEach(folder => {
       folder.addEventListener('click', () => {
-       const src = folder.dataset.img;
+        const src = folder.dataset.img;
 
-          if (box.style.display === 'block' && img.src.includes(src)) {
-            box.style.display = 'none';
-            img.src = '';
-          } else {
-            img.src = src;
-            box.style.display = 'block';
-            }
-          });
-        });
+        if (box.style.display === 'block' && img.src.includes(src)) {
+          box.style.display = 'none';
+          img.src = '';
+        } else {
+          img.src = src;
+          box.style.display = 'block';
+        }
       });
-    </script>
-  </body>
+    });
+  });
+</script>
+
+</body>
 </html>
