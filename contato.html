@@ -23,6 +23,29 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+        /* NAVBAR */
+    .navbar {
+      background-color: var(--azul-claro);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .navbar nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: var(--branco);
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+
     body {
       background: linear-gradient(to bottom, var(--azul-escuro), var(--azul-claro));
       color: var(--branco);
@@ -103,6 +126,20 @@
   </style>
 </head>
 <body>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="img/logo-beto-carrero-roblox.png">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="atracoes.html">Atrações</a>
+      <a href="restaurantes.html">Restaurantes</a>
+      <a href="contato.html">Contato</a>
+      <a href="parceiros.html">Parceiros</a>
+    </nav>
+  </div>
+
   <!--MEIOS DE ENTRAR EM CONTATO -->
   <main class="contact-container">
     <img src="img/logo-beto-carrero-roblox.png" alt="Logo Beto Carrero World Roblox">
