@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/logo-beto-carrero-roblox.png">
+  <title>Contato</title>
+
+  <style>
+    :root {
+      --azul-escuro: #0b2a4a;
+      --azul-claro: #1e90d6;
+      --amarelo: #f9c74f;
+      --branco: #ffffff;
+      --cinza: #f4f4f4;
+      --preto: #000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, var(--azul-escuro), var(--azul-claro));
+      color: var(--branco);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* CONTEÚDO */
+    .contact-container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 40px 30px;
+      background: var(--branco);
+      color: var(--preto);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .contact-container img {
+      height: 150px;
+    }
+
+    .contact-container h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: var(--azul-escuro);
+    }
+
+    .ccontact-list {
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .contact-list p {
+      margin-bottom: 18px;
+    }
+
+    .negrito {
+      font-weight: bold;
+    }
+
+    .contact-highlight {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 2px solid var(--cinza);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--azul-escuro);
+      padding: 25px 20px;
+      color: var(--cinza);
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: bold;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .credits-container {
+        margin: 40px 15px;
+        padding: 30px 20px;
+      }
+
+      .credits-container h1 {
+        font-size: 2rem;
+      }
+
+      .navbar nav a {
+        margin: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!--MEIOS DE ENTRAR EM CONTATO -->
+  <main class="contact-container">
+    <img src="img/logo-beto-carrero-roblox.png" alt="Logo Beto Carrero World Roblox">
+
+    <h1>Contato</h1>
+
+    <div class="contact-list">
+      <p><span class="negrito">E-Mail:</span>betocarreroroblox@gmail.com</p>
+
+      <p><span class="negrito">Redes sociais:</span> @betocarreroroblox</p>
+    </div>
+
+    <div class="contact-highlight">
+      Entre em contato por um dos meios citados acima
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    Feito por fãs | Projeto não oficial<br>Inspirado no parque Beto Carrero World
+  </footer>
+
+</body>
+</html>
