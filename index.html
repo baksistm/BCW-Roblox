@@ -167,81 +167,89 @@
     /* FOOTER */
     footer {
       background-color: var(--azul-escuro);
-      padding: 40px 20px 20px;
+      padding: 50px 20px 25px;
       color: var(--cinza);
       font-size: 0.9rem;
       margin-top: 80px;
     }
-
+    
     .footer-top {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 40px;
       align-items: center;
       justify-content: space-between;
     }
-
+    
     .footer-left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 25px;
       flex-wrap: wrap;
     }
-
+    
     .footer-left img {
-      height: 55px;
+      height: 60px;
     }
-
-    .footer-links a {
-      color: var(--branco);
-      text-decoration: none;
+    
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .footer-btn {
+      display: inline-block;
+      background: var(--amarelo);
+      color: var(--preto);
       font-weight: bold;
-      padding-top: 7px;
+      padding: 10px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.3s;
     }
-
+    
+    .footer-btn:hover {
+      transform: scale(1.05);
+    }
+    
     .socials a img {
       height: 28px;
-      margin-left: 12px;
+      margin-left: 14px;
     }
-
+    
     .footer-divider {
-      margin: 25px 0 15px;
+      margin: 30px 0 15px;
       height: 1px;
       background-color: rgba(255,255,255,0.2);
       border: none;
     }
-
-    .btn-credits {
-      background-color: #007bff; 
-      color: white;              
-      border: none;              
-      padding: 10px 20px;        
-      border-radius: 5px;        
-      cursor: pointer;           
-      transition: 0.3s;
-      padding-left: 10px;
-    }
     
-    .btn-credits:hover {
-      background-color: #0056b3;
-      padding: 12px 22px;
-    }
-
     .footer-fans,
     .footer-bottom {
       text-align: center;
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 12px;
     }
-
+    
     @media (max-width: 768px) {
-      .section {
-        grid-template-columns: 1fr;
+      .footer-top {
+        flex-direction: column;
         text-align: center;
       }
+    
+      .footer-left {
+        flex-direction: column;
+      }
+    
+      .socials a img {
+        margin: 0 8px;
+      }
     }
+
   </style>
 </head>
 <body>
@@ -326,23 +334,28 @@
 
 <footer>
   <div class="footer-top">
+    
     <div class="footer-left">
-      <img src="logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
-      <div>
-        <div>
-          <a href="ocultos/creditos.html" class="btn-credits">Acesse os créditos</a>
-        </div>
-        <div class="footer-links">
-          <a href="ocultos/formulario.html">Colabore no projeto</a>
-        </div>
+      <img src="img/logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
+
+      <div class="footer-actions">
+        <a href="ocultos/creditos.html" class="footer-btn">Acesse os créditos</a>
+        <a href="ocultos/formulario.html" class="footer-btn">Colabore no projeto</a>
       </div>
     </div>
 
     <div class="socials">
-      <a href="https://www.instagram.com/betocarreroroblox"><img src="img/social/instagram.png"></a>
-      <a href="https://www.tiktok.com/@betocarreroroblox"><img src="img/social/tiktok.png"></a>
-      <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920"><img src="img/social/roblox.png"></a>
+      <a href="https://www.instagram.com/betocarreroroblox">
+        <img src="img/social/instagram.png">
+      </a>
+      <a href="https://www.tiktok.com/@betocarreroroblox">
+        <img src="img/social/tiktok.png">
+      </a>
+      <a href="https://www.roblox.com/share?code=5e321601bc590749a198aafa9540c8f9&type=ExperienceDetails&stamp=1768890324920">
+        <img src="img/social/roblox.png">
+      </a>
     </div>
+
   </div>
 
   <div class="footer-fans">Feito por fãs • Projeto não oficial</div>
