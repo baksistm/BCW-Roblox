@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="img/logo-beto-carrero-roblox.png">
-  <title>Beto Carrero World Roblox</title>
+  <link rel="icon" sizes="100%" href="img/logo-beto-carrero-roblox.png">
+  <title>Restaurantes</title>
 
   <style>
     :root {
       --azul-escuro: #0b2a4a;
       --azul-claro: #1e90d6;
       --amarelo: #f9c74f;
+      --rosa: #ef476f;
+      --verde: #2ecc71;
       --branco: #ffffff;
       --cinza: #f4f4f4;
-      --preto: #000;
     }
 
     * {
@@ -26,9 +27,166 @@
     body {
       background: linear-gradient(to bottom, var(--azul-escuro), var(--azul-claro));
       color: var(--branco);
+      padding: 0;
     }
 
-    /* NAVBAR */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .logo {
+      width: 60px;
+      allign-itens: center;
+      padding-top: 30px;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--cinza);
+    }
+
+    .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px; /* evita encostar nas laterais no mobile */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: var(--branco);
+      color: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .area {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background-color: var(--amarelo);
+      color: var(--azul-escuro);
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--branco);
+    }
+
+    .status.pronto {
+      background-color: var(--verde);
+    }
+
+    .status.criacao {
+      background-color: var(--rosa);
+    }
+
+    footer {
+      background-color: var(--azul-escuro);
+      margin-top: 80px;
+      padding: 40px 20px 20px;
+      color: var(--cinza);
+      font-size: 0.9rem;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left img {
+      height: 55px;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .socials a img {
+      height: 28px;
+      margin-left: 12px;
+      transition: transform 0.2s;
+    }
+
+    .socials a img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-divider {
+      margin: 25px 0 15px;
+      border: none;
+      height: 1px;
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: var(--cinza);
+      font-weight: bold;
+    }
+
+    .footer-fans {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+  
+       /* NAVBAR */
     .navbar {
       background-color: var(--azul-claro);
       padding: 14px 40px;
@@ -39,22 +197,22 @@
       top: 0;
       z-index: 1000;
     }
-
+    
     .logo {
       display: flex;
       align-items: center;
     }
-
+    
     .logo img {
       height: 48px;
     }
-
+    
     .navbar nav {
       display: flex;
       align-items: center;
       gap: 24px;
     }
-
+    
     .navbar nav a {
       text-decoration: none;
       color: var(--branco);
@@ -62,7 +220,7 @@
       font-size: 0.95rem;
       position: relative;
     }
-
+    
     .navbar nav a::after {
       content: "";
       position: absolute;
@@ -73,18 +231,19 @@
       bottom: -5px;
       transition: 0.3s;
     }
-
+    
     .navbar nav a:hover::after {
       width: 100%;
     }
-
+    
+    /* RESPONSIVO */
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
         gap: 10px;
         padding: 15px 20px;
       }
-
+    
       .navbar nav {
         flex-wrap: wrap;
         justify-content: center;
@@ -92,193 +251,24 @@
       }
     }
 
-    /* CARROSSEL */
-    .carousel {
-      width: 100%;
-      max-height: 720px;
-      overflow: hidden;
+      .grid {
+        padding: 0 16px; /* mais respiro em telas pequenas */
+        gap: 22px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
     }
 
-    .carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-    }
-
-    .carousel img.active {
-      display: block;
-    }
-
-    /* GAME PASSES */
-    .gamepasses {
-      background: var(--branco);
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-      
-    .gamepasses h1 {
-      text-align: center;
-      color: #000;
-      font-size: 1.6rem;
-    }
-      
-    .gamepasses-images {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-    }
-      
-    .gamepasses-images img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    /* SEÇÕES */
-    .section {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .section.reverse {
-      direction: rtl;
-    }
-
-    .section.reverse > * {
-      direction: ltr;
-    }
-
-    .folders {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .folder {
-      background: var(--branco);
-      color: var(--preto);
-      padding: 18px 25px;
-      border-radius: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .folder-image {
-      display: none;
-      margin-top: 15px;
-    }
-
-    .folder-image img {
-      width: 100%;
-      border-radius: 15px;
-    }
-
-    .info h2 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
-
-    .info p {
-      color: var(--cinza);
-      margin-bottom: 20px;
-    }
-
-    .info a {
-      display: inline-block;
-      padding: 12px 26px;
-      background: var(--amarelo);
-      color: var(--preto);
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-    }
-
-    /* FOOTER (INALTERADO) */
-    footer {
-      background-color: var(--azul-escuro);
-      padding: 50px 20px 25px;
-      color: var(--cinza);
-      font-size: 0.9rem;
-      margin-top: 80px;
-    }
-    
-    .footer-top {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    
-    .footer-left img {
-      height: 60px;
-    }
-    
-    .footer-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    
-    .footer-btn {
-      display: inline-block;
-      background: var(--branco);
-      color: var(--preto);
-      font-weight: bold;
-      padding: 10px 22px;
-      border-radius: 25px;
-      text-decoration: none;
-      text-align: center;
-      transition: 0.3s;
-    }
-    
-    .footer-btn:hover {
-      transform: scale(1.05);
-    }
-    
-    .socials a img {
-      height: 28px;
-      margin-left: 14px;
-    }
-    
-    .footer-divider {
-      margin: 30px 0 15px;
-      height: 1px;
-      background-color: rgba(255,255,255,0.2);
-      border: none;
-    }
-    
-    .footer-fans,
-    .footer-bottom {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 12px;
+      .navbar nav a {
+        margin: 0 10px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
   <div class="navbar">
     <a href="index.html" class="logo">
       <img src="img/logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
@@ -292,6 +282,8 @@
       <a href="parceiros.html">Parceiros</a>
     </nav>
   </div>
+
+
 
   <header style="padding: 40px 20px;">
     <h1>Restaurantes do Parque</h1>
