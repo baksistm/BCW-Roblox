@@ -186,47 +186,70 @@
       margin-top: 25px;
     }
   
-    /* NAVBAR */
+       /* NAVBAR */
     .navbar {
       background-color: var(--azul-claro);
-      padding: 15px 30px;
+      padding: 14px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
+    
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
     }
-
+    
     .logo img {
-      height: 45px;
+      height: 48px;
     }
-
+    
+    .navbar nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    
     .navbar nav a {
-      margin-left: 22px;
       text-decoration: none;
       color: var(--branco);
       font-weight: bold;
       font-size: 0.95rem;
-      transition: opacity 0.2s;
+      position: relative;
     }
-
-    .navbar nav a:hover {
-      opacity: 0.8;
+    
+    .navbar nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--amarelo);
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
     }
-
+    
+    .navbar nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* RESPONSIVO */
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+        padding: 15px 20px;
       }
-
-      .navbar nav a {
-        margin: 0 10px;
+    
+      .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
       }
+    }
 
       .grid {
         padding: 0 16px; /* mais respiro em telas pequenas */
@@ -247,17 +270,19 @@
 <body>
 
   <div class="navbar">
-    <div class="logo">
+    <a href="index.html" class="logo">
       <img src="img/logo-beto-carrero-roblox.png" alt="Beto Carrero World Roblox">
-    </div>
+    </a>
+  
     <nav>
       <a href="index.html">Home</a>
-      <a href="#">Atrações</a>
+      <a href="atracoes.html">Atrações</a>
       <a href="restaurantes.html">Restaurantes</a>
       <a href="contato.html">Contato</a>
       <a href="parceiros.html">Parceiros</a>
     </nav>
   </div>
+
 
 
   <header style="padding: 40px 20px;">
