@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Colabore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" sizes="100%" href="img/logo-beto-carrero-roblox.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #05adb9;
+      font-family: Arial, sans-serif;
+    }
+
+    img {
+      width: 100%;
+      display: block; /* ESSENCIAL para não criar espaços */
+    }
+
+    /* ===================== */
+    /* ===== BOTÃO ========= */
+    /* ===================== */
+    .btn-colabore {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 14px 40px;
+      background: #db1a9c;
+      color: #ddd5d8;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 30px;
+    }
+
+    /* ===================== */
+    /* ===== DESKTOP ======= */
+    /* ===================== */
+    .desktop {
+      display: block;
+    }
+
+    /* ===================== */
+    /* ===== MOBILE ======== */
+    /* ===================== */
+    .mobile {
+      display: none;
+    }
+
+    /* ===================== */
+    /* ===== RESPONSIVO ==== */
+    /* ===================== */
+    @media (max-width: 768px) {
+      .desktop {
+        display: none;
+      }
+
+      .mobile {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== DESKTOP (5 imagens coladas) ===== -->
+  <section class="desktop">
+    <img src="img/desktop/1.jpg" alt="Foto Monitor 1">
+    <img src="img/desktop/2.jpg" alt="Foto Monitor 2">
+    <img src="img/desktop/3.jpg" alt="Foto Monitor 3">
+    <img src="img/desktop/4.jpg" alt="Foto Monitor 4">
+    <img src="img/desktop/5.jpg" alt="Foto Monitor 5">
+
+    <a href="formulario.html" class="btn-colabore">Colabore</a>
+  </section>
+
+  <!-- ===== MOBILE (2 imagens coladas) ===== -->
+  <section class="mobile">
+    <img src="img/mobile/1.jpg" alt="Foto Mobile 1">
+    <img src="img/mobile/2.jpg" alt="Foto Mobile 2">
+
+    <a href="formulario.html" class="btn-colabore">Colabore</a>
+  </section>
+
+</body>
+</html>
