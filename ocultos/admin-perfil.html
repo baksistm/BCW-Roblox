@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Administração | Painel</title>
+  <title>Administração | Perfil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="admin-area.css">
 </head>
@@ -16,7 +16,7 @@
       <div class="nav-links">
         <a href="admin-colaboracao.html">Colaboração</a>
         <a href="admin-arquivos.html">Arquivos</a>
-        <a href="admin-perfil.html">Perfil</a>
+        <a class="active" href="admin-perfil.html">Perfil</a>
       </div>
       <div class="nav-user">
         <span>Olá, <span data-admin-name>Admin</span></span>
@@ -26,26 +26,24 @@
 
     <main class="page">
       <header class="page-header">
-        <h1>Painel Administrativo</h1>
-        <p>Gerencie colaboração, arquivos e seu perfil com rapidez.</p>
+        <h1>Perfil</h1>
+        <p>Atualize suas informações de acesso.</p>
       </header>
 
-      <section class="grid">
-        <div class="card">
-          <h3>Colaboração</h3>
-          <p>Acompanhe a planilha de colaboração em tempo real.</p>
-          <a class="button" href="admin-colaboracao.html">Acessar</a>
-        </div>
-        <div class="card">
-          <h3>Arquivos</h3>
-          <p>Abra pastas de imagens, atrações e outros materiais.</p>
-          <a class="button" href="admin-arquivos.html">Ver pastas</a>
-        </div>
-        <div class="card">
-          <h3>Perfil</h3>
-          <p>Atualize seu nome social, usuário e senha.</p>
-          <a class="button" href="admin-perfil.html">Editar perfil</a>
-        </div>
+      <section class="card" style="max-width:520px;">
+        <form class="form-grid" data-profile-form>
+          <label for="profile-name">Nome social</label>
+          <input id="profile-name" name="nome" placeholder="Nome social" required>
+
+          <label for="profile-user">Usuário</label>
+          <input id="profile-user" name="usuario" placeholder="Usuário" required>
+
+          <label for="profile-pass">Senha</label>
+          <input id="profile-pass" name="senha" placeholder="Senha" type="password" required>
+
+          <button class="button" type="submit">Salvar alterações</button>
+          <span id="profile-status" style="font-weight:600;"></span>
+        </form>
       </section>
     </main>
   </div>
