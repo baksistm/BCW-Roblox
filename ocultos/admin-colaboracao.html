@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Administração | Painel</title>
+  <title>Administração | Colaboração</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="admin-area.css">
 </head>
@@ -14,7 +14,7 @@
         <strong>Administração BCW</strong>
       </div>
       <div class="nav-links">
-        <a href="admin-colaboracao.html">Colaboração</a>
+        <a class="active" href="admin-colaboracao.html">Colaboração</a>
         <a href="admin-arquivos.html">Arquivos</a>
         <a href="admin-perfil.html">Perfil</a>
       </div>
@@ -26,25 +26,14 @@
 
     <main class="page">
       <header class="page-header">
-        <h1>Painel Administrativo</h1>
-        <p>Gerencie colaboração, arquivos e seu perfil com rapidez.</p>
+        <h1>Colaboração</h1>
+        <p>Visualize as solicitações diretamente na planilha integrada.</p>
       </header>
 
-      <section class="grid">
-        <div class="card">
-          <h3>Colaboração</h3>
-          <p>Acompanhe a planilha de colaboração em tempo real.</p>
-          <a class="button" href="admin-colaboracao.html">Acessar</a>
-        </div>
-        <div class="card">
-          <h3>Arquivos</h3>
-          <p>Abra pastas de imagens, atrações e outros materiais.</p>
-          <a class="button" href="admin-arquivos.html">Ver pastas</a>
-        </div>
-        <div class="card">
-          <h3>Perfil</h3>
-          <p>Atualize seu nome social, usuário e senha.</p>
-          <a class="button" href="admin-perfil.html">Editar perfil</a>
+      <section class="card">
+        <iframe id="collab-iframe" title="Planilha de Colaboração"></iframe>
+        <div style="margin-top:18px;display:flex;justify-content:flex-end;">
+          <a class="button" id="collab-button" target="_blank">Abrir planilha completa</a>
         </div>
       </section>
     </main>
