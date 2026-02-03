@@ -1,1 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <script src="auth.js"></script>
+    <script>protect()</script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #123176 0%, #264597 50%, #57bfee 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        nav {
+            background-color: #018570;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        nav img {
+            height: 40px;
+        }
+        nav a {
+            color: #f8d66b;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fe6100;
+        }
+        .logout-btn {
+            background-color: #dc2321;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #fe6100;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .profile-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .profile-form h1 {
+            color: #f8af1a;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            color: #f8d66b;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000000;
+        }
+        .save-btn {
+            background: linear-gradient(45deg, #5cb7a6, #57bfee);
+            color: #000000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+        .save-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .success { color: #f8d66b; }
+        .error { color: #dc2321; }
+        @media (max-width: 768px) {
+            .profile-form {
+                padding: 20px;
+            }
+            .profile-form h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="assets/logo-beto-carrero-roblox.png" alt="Logo Beto Carrero Roblox" height="40">
+        <div>
+            <a href="colaboracao.html">Colaboração</a>
+            <a href="arquivos.html">Arquivos</a>
+            <a href="perfil.html">Perfil</a>
+        </div>
+        <button class="logout-btn" onclick="window.location.href='login.html'">Sair</button>
+    </nav>
+    <div class="container">
+        <div class="profile-form">
+            <h1>Editar Perfil</h1>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="nome">Nome Social:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="usuarioNovo">Nome de Usuário:</label>
+                    <input type="text" id="usuarioNovo" name="usuarioNovo" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+                <button type="submit" class="save-btn">Salvar Alterações</button>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+    <script>
+        // Substitua pela URL do seu web app do Apps Script
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6X0T3MnmnkjYpSYxC0BJ63ILelAa06Aa11R6_aH7KhD3RE4wcSoVYvtgS_LROoo6t/exec'; // Ex: https://script.google.com/macros/s/SEU_ID/exec
 
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfileData();
+        });
+
+        function loadProfileData() {
+            const currentUser = getCurrentUser(); // Deve retornar { username: '...' }
+            if (!currentUser || !currentUser.username) {
+                alert('Usuário não logado.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            fetch(SCRIPT_URL + '?username=' + encodeURIComponent(currentUser.username))
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('message').innerHTML = '<span class="error">' + data.error + '</span>';
+                        return;
+                    }
+                    document.getElementById('nome').value = data.nome;
+                    document.getElementById('usuarioNovo').value = data.usuario;
+                    document.getElementById('senha').value = data.senha;
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar dados:', error);
+                    document.getElementById('message').innerHTML = '<span class="error">Erro ao carregar dados do perfil.</span>';
+                });
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const currentUser = getCurrentUser();
+            if (!currentUser || !currentUser.username) {
+                alert('Usuário não logado.');
+                return;
+            }
+
+            const nome = document.getElementById('nome').value;
+            const usuarioNovo = document.getElementById('usuarioNovo').value;
+            const senha = document.getElementById('senha').value;
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    usuarioAtual: currentUser.username, // Usa o username atual para identificar a linha
+                    nome: nome,
+                    usuarioNovo: usuarioNovo,
+                    senha: senha
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('message').innerHTML = '<span class="success">Perfil atualizado com sucesso!</span>';
+                    // Opcional: recarregar dados ou redirecionar
+                } else {
+                    document.getElementById('message').innerHTML = '<span class="error">' + (data.error || 'Erro ao atualizar perfil.') + '</span>';
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao salvar:', error);
+                document.getElementById('message').innerHTML = '<span class="error">Erro ao salvar alterações.</span>';
+            });
+        });
+
+        // Placeholder - Implemente no auth.js para retornar o usuário logado
+        function getCurrentUser() {
+            // Exemplo: return { username: sessionStorage.getItem('username') };
+            return { username: 'teste' }; // Substitua pela implementação real
+        }
+    </script>
+</body>
+</html>
