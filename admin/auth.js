@@ -16,7 +16,7 @@ return;
 sessionStorage.setItem('auth', 'true');
 sessionStorage.setItem('nome', found['Nome Social']);
 
-
+sessionStorage.setItem('username', username); // 'username' é a variável do campo de input do usuário
 window.location.href = 'loading.html';
 }
 
