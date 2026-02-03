@@ -156,7 +156,7 @@
     </div>
     <script>
         // Substitua pela URL do seu web app do Apps Script
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6X0T3MnmnkjYpSYxC0BJ63ILelAa06Aa11R6_aH7KhD3RE4wcSoVYvtgS_LROoo6t/exec'; // Ex: https://script.google.com/macros/s/SEU_ID/exec
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwh-IrOB6yd1AvIVi5D3JxQxtuDGoLaYV1MjKmulHAvUyYJENh7qd6VZANCZu9yGIHA/exec'; // Ex: https://script.google.com/macros/s/SEU_ID/exec
 
         document.addEventListener('DOMContentLoaded', function() {
             loadProfileData();
@@ -226,10 +226,13 @@
             });
         });
 
-        // Placeholder - Implemente no auth.js para retornar o usuário logado
         function getCurrentUser() {
-            // Exemplo: return { username: sessionStorage.getItem('username') };
-            return { username: 'teste' }; // Substitua pela implementação real
+            const username = sessionStorage.getItem('username'); // Supondo que o login salva no sessionStorage
+            if (username) {
+                return { username: username };
+            } else {
+                return null; // Se não estiver logado
+            }
         }
     </script>
 </body>
