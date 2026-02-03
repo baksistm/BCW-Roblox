@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="card loading">
+<div class="spinner"></div>
+<p id="welcome"></p>
+</div>
+</div>
+
+
+<script>
+const nome = sessionStorage.getItem('nome');
+document.getElementById('welcome').innerText = `Bem-vindo ${nome}`;
+
+
+setTimeout(() => {
+window.location.href = 'dashboard.html';
+}, 4000);
+</script>
+</body>
+</html>
