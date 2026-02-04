@@ -1,13 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Arquivos • Administração BCW</title>
+
+<style>
+:root{
+  --verde:#018570;
+  --verde2:#5cb7a6;
+  --azul:#264597;
+  --roxo:#663289;
+  --laranja:#fe6100;
+  --branco:#ffffff;
+  --cinza:#f5f6f8;
+  --preto:#000000;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, Arial, sans-serif;
+}
+
+body{
+  background:var(--cinza);
+  padding:30px 15px;
+}
+
+.container{
+  max-width:600px;
+  margin:auto;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:30px;
+  color:var(--azul);
+}
+
+.folder{
+  background:var(--branco);
+  border-radius:16px;
+  padding:18px 20px;
+  margin-bottom:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  cursor:pointer;
+}
+
+.folder-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-weight:600;
+}
+
+.folder-header span{
+  font-size:15px;
+}
+
+.arrow{
+  transition:.3s;
+}
+
+.folder.open .arrow{
+  transform:rotate(180deg);
+}
+
+.subfolders{
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .4s ease;
+  margin-top:10px;
+}
+
+.folder.open .subfolders{
+  max-height:500px;
+}
+
+.subfolder{
+  padding:12px 15px;
+  border-radius:12px;
+  margin-top:8px;
+  background:#f9f9f9;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.subfolder:hover{
+  background:#ececec;
+}
+</style>
+</head>
+
+<body>
+
 <script src="auth.js"></script>
 <script>protect()</script>
 
-
 <div class="container">
-<div class="grid">
-<button onclick="window.open('https://drive.google.com/drive/folders/1H3mUvIHiIhUPxQKnPsyHRnz4VcS_LNcG')">Imagens</button>
-<button onclick="window.open('https://drive.google.com/drive/folders/1StpGpTXF9qKdeDXpaGQjkoce5pNDDka_')">Restaurantes</button>
-<button onclick="window.open('https://drive.google.com/drive/folders/1GM2joJgY-aGyvj6pVkypXcC2XiQQNsd3')">Game Pass</button>
-<button onclick="window.open('https://drive.google.com/drive/folders/1vJ0fnHxc4TG8MZVl4KIVu55FYnxtnJPe')">Marca</button>
-<button onclick="window.open('https://drive.google.com/drive/folders/1aSx0M-p30t_ZBPaa-q9Nbti6vn0ACy6D')">Parque</button>
+
+<h1>📁 Arquivos</h1>
+
+<!-- ATRAÇÕES -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1H3mUvIHiIhUPxQKnPsyHRnz4VcS_LNcG')">
+  <div class="folder-header">
+    <span>🎢 Atrações</span>
+  </div>
 </div>
+
+<!-- RESTAURANTES -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1StpGpTXF9qKdeDXpaGQjkoce5pNDDka_')">
+  <div class="folder-header">
+    <span>🍔 Restaurantes</span>
+  </div>
 </div>
+
+<!-- GAME PASS -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1GM2joJgY-aGyvj6pVkypXcC2XiQQNsd3')">
+  <div class="folder-header">
+    <span>🎟️ Game Pass</span>
+  </div>
+</div>
+
+<!-- MARCA -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1vJ0fnHxc4TG8MZVl4KIVu55FYnxtnJPe')">
+  <div class="folder-header">
+    <span>🏷️ Marca</span>
+  </div>
+</div>
+
+<!-- PARQUE -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1aSx0M-p30t_ZBPaa-q9Nbti6vn0ACy6D')">
+  <div class="folder-header">
+    <span>🎠 Parque</span>
+  </div>
+</div>
+
+<!-- IMAGENS SITE (PASTA COM SUBPASTAS) -->
+<div class="folder" onclick="toggleFolder(this)">
+  <div class="folder-header">
+    <span>🖼️ Imagens Site</span>
+    <span class="arrow">▼</span>
+  </div>
+
+  <div class="subfolders">
+    <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/19hyV1vOANMhk4OGezDrTd5xHUxzi0ZVy')">
+      🖥️ Monitor
+    </div>
+    <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/134tsnaywn4_Ax3JEZ68TSoL3AeCs8Sql')">
+      📱 Mobile
+    </div>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/13LGcE5kEO5yyNSTWn-Z1pZBeza5_K_pm')">
+  <div class="folder-header">
+    <span>🏠 Home</span>
+  </div>
+</div>
+
+<!-- TEXTOS -->
+<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1xykfgHeOOduzYjHPxhXn0e-ZdKh6Pbiz')">
+  <div class="folder-header">
+    <span>📝 Textos</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+function toggleFolder(el){
+  el.classList.toggle('open');
+}
+
+function openLink(event, url){
+  event.stopPropagation();
+  window.open(url,'_blank');
+}
+</script>
+
+</body>
+</html>
