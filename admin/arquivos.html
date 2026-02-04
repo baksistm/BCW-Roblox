@@ -100,75 +100,64 @@ h1{
 
 <div class="container">
 
-<h1>📁 Arquivos</h1>
-
-<!-- ATRAÇÕES -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1H3mUvIHiIhUPxQKnPsyHRnz4VcS_LNcG')">
+  <div class="folder" onclick="toggleFolder(this)">
   <div class="folder-header">
-    <span>🎢 Atrações</span>
-  </div>
-</div>
-
-<!-- RESTAURANTES -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1StpGpTXF9qKdeDXpaGQjkoce5pNDDka_')">
-  <div class="folder-header">
-    <span>🍔 Restaurantes</span>
-  </div>
-</div>
-
-<!-- GAME PASS -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1GM2joJgY-aGyvj6pVkypXcC2XiQQNsd3')">
-  <div class="folder-header">
-    <span>🎟️ Game Pass</span>
-  </div>
-</div>
-
-<!-- MARCA -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1vJ0fnHxc4TG8MZVl4KIVu55FYnxtnJPe')">
-  <div class="folder-header">
-    <span>🏷️ Marca</span>
-  </div>
-</div>
-
-<!-- PARQUE -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1aSx0M-p30t_ZBPaa-q9Nbti6vn0ACy6D')">
-  <div class="folder-header">
-    <span>🎠 Parque</span>
-  </div>
-</div>
-
-<!-- IMAGENS SITE (PASTA COM SUBPASTAS) -->
-<div class="folder" onclick="toggleFolder(this)">
-  <div class="folder-header">
-    <span>🖼️ Imagens Site</span>
+    <span>🖼️ Imagens</span>
     <span class="arrow">▼</span>
   </div>
 
   <div class="subfolders">
     <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/19hyV1vOANMhk4OGezDrTd5xHUxzi0ZVy')">
-      🖥️ Monitor
+      Atrações
     </div>
     <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/134tsnaywn4_Ax3JEZ68TSoL3AeCs8Sql')">
-      📱 Mobile
+      Restaurantes
+    </div>
+    <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/134tsnaywn4_Ax3JEZ68TSoL3AeCs8Sql')">
+      Game Pass
+    </div>
+    <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/134tsnaywn4_Ax3JEZ68TSoL3AeCs8Sql')">
+      Parque
     </div>
   </div>
-</div>
 
-<!-- HOME -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/13LGcE5kEO5yyNSTWn-Z1pZBeza5_K_pm')">
-  <div class="folder-header">
-    <span>🏠 Home</span>
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-header">
+      <span>Colabore | Imagens Background</span>
+      <span class="arrow">▼</span>
+    </div>
+
+    <div class="subfolders">
+      <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/19hyV1vOANMhk4OGezDrTd5xHUxzi0ZVy')">
+        Mobile
+      </div>
+
+      <div class="subfolder" onclick="openLink(event,'')"">
+        Monitor
+      </div>
+    </div>
+
+  <div class="folder" onclick="toggleFolder(this)">
+    <div class="folder-header">
+      <span>Banners</span>
+      <span class="arrow">▼</span>
+    </div>
+
+    <div class="subfolders">
+      <div class="subfolder" onclick="openLink(event,'https://drive.google.com/drive/folders/19hyV1vOANMhk4OGezDrTd5xHUxzi0ZVy')">
+        Home
+      </div>
+
+      <div class="subfolder" onclick="openLink(event,'')"">
+        Atrações
+      </div>
+    </div>
+
+  <div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1aSx0M-p30t_ZBPaa-q9Nbti6vn0ACy6D')">
+    <div class="folder-header">
+      <span>🎠 Parque</span>
+    </div>
   </div>
-</div>
-
-<!-- TEXTOS -->
-<div class="folder" onclick="openLink(event,'https://drive.google.com/drive/folders/1xykfgHeOOduzYjHPxhXn0e-ZdKh6Pbiz')">
-  <div class="folder-header">
-    <span>📝 Textos</span>
-  </div>
-</div>
-
-</div>
 
 <script>
 function toggleFolder(el){
